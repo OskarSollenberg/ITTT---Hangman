@@ -13,7 +13,7 @@ body {
   background: #e8be00;
 }
 
-main {
+.main {
   width: 100vw;
   height: 100vh;
   padding: 2rem;
@@ -24,54 +24,60 @@ main {
   gap: 1rem;
 }
 
-input {
+.input {
   border: none;
   background: #e8be00;
   color: black;
   text-align: center;
   text-transform: uppercase;
   border: 3px solid rgb(0, 0, 0);
+  animation-duration: 0.4s;
   width: 4rem;
   height: 4rem;
   font-size: 2.5rem;
 }
-input:hover {
+.input:hover {
   border: 4px solid rgb(0, 0, 0);
 }
-input:focus {
+.input:focus {
   outline: none !important;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 @media (min-width: 25rem) {
-  input {
+  .input {
     width: 6rem;
     height: 6rem;
     font-size: 3rem;
   }
 }
 @media (min-width: 35rem) {
-  input {
+  .input {
     width: 8rem;
     height: 8rem;
     font-size: 5rem;
   }
 }
 
-p {
+.word {
   font-size: 2rem;
 }
 @media (min-width: 25rem) {
-  p {
+  .word {
     font-size: 3rem;
   }
 }
 @media (min-width: 35rem) {
-  p {
+  .word {
     font-size: 4rem;
   }
 }
 
 .img {
+  position: absolute;
+  opacity: 0;
+}
+
+.img__ground {
   position: absolute;
 }
 
@@ -96,22 +102,30 @@ p {
   }
 }
 
-h1 {
+.title {
   z-index: 100;
   position: absolute;
   bottom: 1.2rem;
-  font-size: 1.55rem;
   opacity: 0.8;
+  font-size: 1.55rem;
 }
 @media (min-width: 25rem) {
-  h1 {
+  .title {
     font-size: 2.1rem;
     bottom: 1.5rem;
   }
 }
 @media (min-width: 35rem) {
-  h1 {
+  .title {
     font-size: 3.1rem;
     bottom: 2.5rem;
   }
+}
+
+.visable {
+  opacity: 1;
+}
+
+.red {
+  background: red;
 }/*# sourceMappingURL=style.css.map */

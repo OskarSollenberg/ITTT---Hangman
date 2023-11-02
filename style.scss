@@ -1,18 +1,19 @@
+// ______________________RESET__________________________
 * {
     margin: 0;
     padding: 0%;
     box-sizing: border-box;
 }
-
 img {
     width: 100%;
     display: block;
 }
+// ______________________GLOBAL_________________________
 body {
     background: #e8be00;
 }
-
-main {
+// ______________________STYLES_________________________
+.main {
     width: 100vw;
     height: 100vh;
     padding: 2rem;
@@ -23,14 +24,14 @@ main {
     align-items: center;
     gap: 1rem;
 }
-
-input {
+.input {
     border: none;
     background: #e8be00;
     color: black;
     text-align: center;
     text-transform: uppercase;
     border: 3px solid rgba(0, 0, 0, 1);
+    animation-duration: 0.4s;
 
     width: 4rem;
     height: 4rem;
@@ -57,7 +58,7 @@ input {
         font-size: 5rem;
     }
 }
-p {
+.word {
     font-size: 2rem;
 
     @media (min-width: 25rem) {
@@ -70,8 +71,11 @@ p {
 }
 .img {
     position: absolute;
+    opacity: 0;
 }
-
+.img__ground {
+    position: absolute;
+}
 .content__wrapper {
     display: flex;
     flex-direction: column;
@@ -90,13 +94,13 @@ p {
         height: 24rem;
     }
 }
-
-h1 {
+.title {
     z-index: 100;
     position: absolute;
     bottom: 1.2rem;
-    font-size: 1.55rem;
     opacity: 0.8;
+
+    font-size: 1.55rem;
 
     @media (min-width: 25rem) {
         font-size: 2.1rem;
@@ -107,4 +111,10 @@ h1 {
         font-size: 3.1rem;
         bottom: 2.5rem;
     }
+}
+.visable {
+    opacity: 1;
+}
+.red {
+    background: red;
 }

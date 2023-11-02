@@ -3,21 +3,35 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/cdbootstrap/css/bootstrap.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/cdbootstrap/css/cdb.min.css"
+        />
+
+        <script src="https://cdn.jsdelivr.net/npm/cdbootstrap/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/cdbootstrap/js/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/cdbootstrap/js/cdb.min.js"></script>
+
         <link rel="stylesheet" href="style.css" />
         <title>Document</title>
     </head>
     <body>
-        <main>
-            <input type="text" name="" id="" placeholder="" />
-            <p>_ _ _ _ _ _ _ _ _</p>
+        <main class="main">
+            <input class="input animated" type="text" id="userInput" />
+            <p class="word" id="word">_ _ _ _ _ _ _ _ _</p>
             <div class="content__wrapper">
-                <img class="img" src="images/guy.png" alt="" />
-                <img class="img" src="images/rope.png" alt="" />
-                <img class="img" src="images/mid.png" alt="" />
-                <img class="img" src="images/horizontal.png" alt="" />
-                <img class="img" src="images/vertical.png" alt="" />
-                <img class="img" src="images/ground.png" alt="" />
-                <h1>HANGMAN</h1>
+                <img class="img img__guy" src="images/guy.png" alt="" />
+                <img class="img img__rope" src="images/rope.png" alt="" />
+                <img class="img img__mid" src="images/mid.png" alt="" />
+                <img class="img img__hor" src="images/horizontal.png" alt="" />
+                <img class="img img__ver" src="images/vertical.png" alt="" />
+                <img class="img__ground" src="images/ground.png" alt="" />
+                <h1 class="title">HANGMAN</h1>
             </div>
         </main>
         <script src="script.js"></script>
