@@ -34,6 +34,7 @@ body {
   width: 4rem;
   height: 4rem;
   font-size: 2.5rem;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   background-color: black;
   -webkit-background-clip: text;
   -moz-background-clip: text;
@@ -41,12 +42,10 @@ body {
   color: transparent;
   text-shadow: rgba(247, 234, 209, 0.513) 0px 3px 3px;
 }
-.input:hover {
-  box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
-}
 .input:focus {
   outline: none !important;
   border: 4px solid rgb(0, 0, 0);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.45) inset;
 }
 @media (min-width: 25rem) {
   .input {
@@ -65,6 +64,7 @@ body {
 
 .answer {
   font-size: 2rem;
+  height: 5rem;
 }
 @media (min-width: 25rem) {
   .answer {
@@ -79,6 +79,7 @@ body {
 
 .img {
   position: absolute;
+  opacity: 0;
 }
 
 .img__ground {
@@ -132,20 +133,52 @@ body {
   }
 }
 
-.visable {
-  opacity: 1;
-}
-
 .red {
   background: red;
 }
 
 .wrapper {
   padding: 2rem;
+  height: 45rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   background-color: rgba(232, 190, 0, 0.1490196078);
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.display--none {
+  display: none;
+}
+
+.word {
+  width: 30rem;
+  font-size: 3rem;
+}
+
+.lives {
+  margin-top: 1rem;
+  opacity: 0;
+}
+
+.btn {
+  padding: 2rem;
+  z-index: 300;
+  border: none;
+  outline: none;
+  color: black;
+  text-align: center;
+  text-transform: uppercase;
+  border: 3px solid rgb(0, 0, 0);
+  font-size: 2.5rem;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.btn:active {
+  border: 4px solid rgb(0, 0, 0);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.45) inset;
+}
+
+.visable {
+  opacity: 1;
 }/*# sourceMappingURL=style.css.map */

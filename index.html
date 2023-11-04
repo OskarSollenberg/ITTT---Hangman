@@ -18,29 +18,50 @@
         <script src="https://cdn.jsdelivr.net/npm/cdbootstrap/js/cdb.min.js"></script>
 
         <link rel="stylesheet" href="style.css" />
-        <title>Document</title>
+        <title>Hangman</title>
     </head>
     <body>
         <main class="main">
-            <div class="wrapper">
+            <div class="wrapper || animated" id="card">
+                <button id="btn" class="btn">START</button>
                 <input
                     maxlength="1"
-                    class="input || animated"
+                    class="input || display--none animated"
                     type="text"
                     id="userInput"
+                    placeholder="..."
                 />
+                <p id="lives" class="lives">♥️ = <span id="life">5</span></p>
+
                 <p class="answer" id="answer"></p>
                 <div class="content__wrapper">
-                    <img class="img img__guy" src="images/guy.png" alt="" />
-                    <img class="img img__rope" src="images/rope.png" alt="" />
-                    <img class="img img__mid" src="images/mid.png" alt="" />
                     <img
-                        class="img img__hor"
+                        class="img visable"
+                        id="img__guy"
+                        src="images/guy.png"
+                        alt=""
+                    />
+                    <img
+                        class="img"
+                        id="img__rope"
+                        src="images/rope.png"
+                        alt=""
+                    />
+                    <img
+                        class="img visable"
+                        id="img__mid"
+                        src="images/mid.png"
+                        alt=""
+                    />
+                    <img
+                        class="img visable"
+                        id="img__hor"
                         src="images/horizontal.png"
                         alt=""
                     />
                     <img
-                        class="img img__ver"
+                        class="img visable"
+                        id="img__ver"
                         src="images/vertical.png"
                         alt=""
                     />

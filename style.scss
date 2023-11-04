@@ -41,16 +41,14 @@ body {
     width: 4rem;
     height: 4rem;
     font-size: 2.5rem;
-
-    &:hover {
-        box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
-    }
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+        rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+        rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 
     &:focus {
         outline: none !important;
-        // box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
-        //     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
         border: 4px solid rgba(0, 0, 0, 1);
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.45) inset;
     }
     @media (min-width: 25rem) {
         width: 6rem;
@@ -73,6 +71,7 @@ body {
 }
 .answer {
     font-size: 2rem;
+    height: 5rem;
 
     @media (min-width: 25rem) {
         font-size: 3rem;
@@ -84,7 +83,7 @@ body {
 }
 .img {
     position: absolute;
-    // opacity: 0;
+    opacity: 0;
 }
 .img__ground {
     position: absolute;
@@ -112,7 +111,6 @@ body {
     position: absolute;
     bottom: 0.7rem;
     opacity: 0.8;
-
     font-size: 1.55rem;
 
     @media (min-width: 25rem) {
@@ -132,15 +130,13 @@ body {
     color: transparent;
     text-shadow: rgba(247, 234, 209, 0.513) 0px 3px 3px;
 }
-.visable {
-    opacity: 1;
-}
+
 .red {
     background: red;
 }
-
 .wrapper {
     padding: 2rem;
+    height: 45rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -153,4 +149,40 @@ body {
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
         rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
         rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.display--none {
+    display: none;
+}
+.word {
+    width: 30rem;
+    font-size: 3rem;
+}
+
+.lives {
+    margin-top: 1rem;
+    opacity: 0;
+}
+.btn {
+    padding: 2rem;
+    z-index: 300;
+    border: none;
+    outline: none;
+
+    color: black;
+    text-align: center;
+    text-transform: uppercase;
+    border: 3px solid rgba(0, 0, 0, 1);
+
+    font-size: 2.5rem;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+        rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+        rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
+    &:active {
+        border: 4px solid rgba(0, 0, 0, 1);
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.45) inset;
+    }
+}
+.visable {
+    opacity: 1;
 }
