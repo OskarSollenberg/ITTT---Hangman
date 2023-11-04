@@ -56,7 +56,7 @@ body {
         font-size: 3rem;
     }
 
-    @media (min-width: 35rem) {
+    @media (min-width: 50rem) {
         width: 8rem;
         height: 8rem;
         font-size: 5rem;
@@ -71,13 +71,13 @@ body {
 }
 .answer {
     font-size: 2rem;
-    height: 5rem;
+    // height: 5rem;
 
     @media (min-width: 25rem) {
         font-size: 3rem;
     }
 
-    @media (min-width: 35rem) {
+    @media (min-width: 50rem) {
         font-size: 4rem;
     }
 }
@@ -101,7 +101,7 @@ body {
         height: 16rem;
     }
 
-    @media (min-width: 35rem) {
+    @media (min-width: 50rem) {
         width: 30rem;
         height: 24rem;
     }
@@ -112,23 +112,22 @@ body {
     bottom: 0.7rem;
     opacity: 0.8;
     font-size: 1.55rem;
-
-    @media (min-width: 25rem) {
-        font-size: 2.1rem;
-        bottom: 1.2rem;
-    }
-
-    @media (min-width: 35rem) {
-        font-size: 3.1rem;
-        bottom: 2.2rem;
-    }
-
     background-color: black;
     -webkit-background-clip: text;
     -moz-background-clip: text;
     background-clip: text;
     color: transparent;
     text-shadow: rgba(247, 234, 209, 0.513) 0px 3px 3px;
+
+    @media (min-width: 25rem) {
+        font-size: 2.1rem;
+        bottom: 1.2rem;
+    }
+
+    @media (min-width: 50rem) {
+        font-size: 3.1rem;
+        bottom: 2.2rem;
+    }
 }
 
 .red {
@@ -136,8 +135,9 @@ body {
 }
 .wrapper {
     padding: 2rem;
-    height: 45rem;
     display: flex;
+    height: 25rem;
+
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -149,6 +149,16 @@ body {
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
         rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
         rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
+    @media (min-width: 25rem) {
+        height: 35rem;
+        width: 25rem;
+    }
+
+    @media (min-width: 50rem) {
+        height: 45rem;
+        width: 35rem;
+    }
 }
 .display--none {
     display: none;
