@@ -20,7 +20,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
 }
 @media (min-width: 25rem) {
   .main {
@@ -31,7 +30,8 @@ body {
 .wrapper {
   padding: 2rem;
   display: flex;
-  height: 25rem;
+  height: 27rem;
+  width: 20rem;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -41,31 +41,59 @@ body {
 @media (min-width: 25rem) {
   .wrapper {
     height: 35rem;
-    width: 25rem;
+    width: 30rem;
   }
 }
 @media (min-width: 50rem) {
   .wrapper {
-    height: 45rem;
-    width: 35rem;
+    height: 50rem;
+    width: 45rem;
   }
 }
 
-.input {
-  border: none;
-  text-align: center;
-  text-transform: uppercase;
-  border: 3px solid rgb(0, 0, 0);
-  animation-duration: 0.4s;
-  width: 4rem;
-  height: 4rem;
-  font-size: 2.5rem;
+.btn,
+.input,
+.answer,
+.title {
   background-color: black;
   background-clip: text;
   color: transparent;
   -webkit-background-clip: text;
   -moz-background-clip: text;
   text-shadow: rgba(247, 234, 209, 0.513) 0px 3px 3px;
+}
+
+.btn {
+  margin: 0 auto;
+  font-size: 2rem;
+  border: 3px solid black;
+  font-weight: 500;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.btn:active {
+  border: 4px solid black;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.45) inset;
+}
+@media (min-width: 25rem) {
+  .btn {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 50rem) {
+  .btn {
+    font-size: 4rem;
+  }
+}
+
+.input {
+  width: 5rem;
+  height: 5rem;
+  font-size: 2.5rem;
+  border: none;
+  text-align: center;
+  text-transform: uppercase;
+  border: 3px solid black;
+  animation-duration: 0.4s;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 .input:focus {
@@ -88,8 +116,14 @@ body {
   }
 }
 
+.lives {
+  margin-top: 0.5rem;
+  opacity: 0;
+}
+
 .answer {
   font-size: 2rem;
+  height: 5rem;
 }
 @media (min-width: 25rem) {
   .answer {
@@ -100,15 +134,6 @@ body {
   .answer {
     font-size: 4rem;
   }
-}
-
-.img {
-  position: absolute;
-  opacity: 0;
-}
-
-.img__ground {
-  position: absolute;
 }
 
 .content__wrapper {
@@ -132,18 +157,21 @@ body {
   }
 }
 
+.img {
+  position: absolute;
+  opacity: 0;
+}
+
+.img__ground {
+  position: absolute;
+}
+
 .title {
   z-index: 100;
   position: absolute;
   bottom: 0.7rem;
   opacity: 0.8;
   font-size: 1.55rem;
-  background-color: black;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  text-shadow: rgba(247, 234, 209, 0.513) 0px 3px 3px;
 }
 @media (min-width: 25rem) {
   .title {
@@ -158,39 +186,8 @@ body {
   }
 }
 
-.red {
-  background: red;
-}
-
 .display--none {
   display: none;
-}
-
-.word {
-  width: 30rem;
-  font-size: 3rem;
-}
-
-.lives {
-  margin-top: 1rem;
-  opacity: 0;
-}
-
-.btn {
-  padding: 2rem;
-  z-index: 300;
-  border: none;
-  outline: none;
-  color: black;
-  text-align: center;
-  text-transform: uppercase;
-  border: 3px solid rgb(0, 0, 0);
-  font-size: 2.5rem;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-}
-.btn:active {
-  border: 4px solid rgb(0, 0, 0);
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.45) inset;
 }
 
 .visable {
