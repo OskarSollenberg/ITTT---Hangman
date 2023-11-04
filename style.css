@@ -25,13 +25,34 @@ body {
 @media (min-width: 25rem) {
   .main {
     justify-content: center;
-    bottom: 1.2rem;
+  }
+}
+
+.wrapper {
+  padding: 2rem;
+  display: flex;
+  height: 25rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(232, 190, 0, 0.1490196078);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+@media (min-width: 25rem) {
+  .wrapper {
+    height: 35rem;
+    width: 25rem;
+  }
+}
+@media (min-width: 50rem) {
+  .wrapper {
+    height: 45rem;
+    width: 35rem;
   }
 }
 
 .input {
   border: none;
-  color: black;
   text-align: center;
   text-transform: uppercase;
   border: 3px solid rgb(0, 0, 0);
@@ -39,13 +60,13 @@ body {
   width: 4rem;
   height: 4rem;
   font-size: 2.5rem;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   background-color: black;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
   background-clip: text;
   color: transparent;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
   text-shadow: rgba(247, 234, 209, 0.513) 0px 3px 3px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 .input:focus {
   outline: none !important;
@@ -139,29 +160,6 @@ body {
 
 .red {
   background: red;
-}
-
-.wrapper {
-  padding: 2rem;
-  display: flex;
-  height: 25rem;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-color: rgba(232, 190, 0, 0.1490196078);
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-}
-@media (min-width: 25rem) {
-  .wrapper {
-    height: 35rem;
-    width: 25rem;
-  }
-}
-@media (min-width: 50rem) {
-  .wrapper {
-    height: 45rem;
-    width: 35rem;
-  }
 }
 
 .display--none {

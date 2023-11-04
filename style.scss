@@ -30,21 +30,50 @@ body {
 
     @media (min-width: 25rem) {
         justify-content: center;
-        bottom: 1.2rem;
+    }
+}
+.wrapper {
+    padding: 2rem;
+    display: flex;
+    height: 25rem;
+
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    // background-color: #e8be00;
+    background-color: #e8be0026;
+
+    // box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+        rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+        rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
+    @media (min-width: 25rem) {
+        height: 35rem;
+        width: 25rem;
+    }
+
+    @media (min-width: 50rem) {
+        height: 45rem;
+        width: 35rem;
     }
 }
 .input {
     border: none;
-
-    color: black;
     text-align: center;
     text-transform: uppercase;
     border: 3px solid rgba(0, 0, 0, 1);
     animation-duration: 0.4s;
-
     width: 4rem;
     height: 4rem;
     font-size: 2.5rem;
+    background-color: black;
+    background-clip: text;
+    color: transparent;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    text-shadow: rgba(247, 234, 209, 0.513) 0px 3px 3px;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
         rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
         rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
@@ -65,13 +94,6 @@ body {
         height: 8rem;
         font-size: 5rem;
     }
-
-    background-color: black;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow: rgba(247, 234, 209, 0.513) 0px 3px 3px;
 }
 .answer {
     font-size: 2rem;
@@ -137,33 +159,7 @@ body {
 .red {
     background: red;
 }
-.wrapper {
-    padding: 2rem;
-    display: flex;
-    height: 25rem;
 
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    // background-color: #e8be00;
-    background-color: #e8be0026;
-
-    // box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-        rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
-        rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-
-    @media (min-width: 25rem) {
-        height: 35rem;
-        width: 25rem;
-    }
-
-    @media (min-width: 50rem) {
-        height: 45rem;
-        width: 35rem;
-    }
-}
 .display--none {
     display: none;
 }
