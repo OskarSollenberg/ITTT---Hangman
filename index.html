@@ -20,10 +20,17 @@
         <link rel="stylesheet" href="style.css" />
         <title>Hangman</title>
     </head>
+    <div id="pyro" class="">
+        <div class="before"></div>
+        <div class="after"></div>
+    </div>
     <body>
         <main class="main">
             <div class="wrapper || animated" id="card">
                 <button id="btn" class="btn">PLAY</button>
+                <button class="btn display--none" id="playAgain" class="btn">
+                    PLAY AGAIN
+                </button>
                 <input
                     maxlength="1"
                     class="input || display--none animated"

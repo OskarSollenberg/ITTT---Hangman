@@ -4,6 +4,8 @@ const answer = document.getElementById("answer");
 const card = document.getElementById("card");
 const lives = document.getElementById("life");
 const liveForToggleVisability = document.getElementById("lives");
+const playAgain = document.getElementById("playAgain");
+const pyro = document.getElementById("pyro");
 
 const btn = document.getElementById("btn");
 
@@ -57,8 +59,9 @@ guessedBefore = () => {
 
 // EXECUTIONS AND IF STATEMENTS
 let guessedLetters = "";
-count = 0;
+imgCount = 0;
 lifeCount = 5;
+winConditionCounter = 0;
 btn.addEventListener("click", function () {
     removeClass(images[0], "visable");
     removeClass(images[1], "visable");
@@ -86,17 +89,37 @@ btn.addEventListener("click", function () {
                 for (let i = 0; i < word.length; i++) {
                     if (word[i] === input.value.toUpperCase()) {
                         wordArr[i] = word[i];
-                        console.log(wordArr);
+                        winConditionCounter++;
                         updateCorrectGuessList();
+                        if (winConditionCounter === word.length) {
+                            wordArr = ["YOU WIN!!"];
+                            updateCorrectGuessList();
+
+                            addClass(input, "display--none");
+                            addClass(pyro, "pyro");
+
+                            removeClass(playAgain, "display--none");
+
+                            playAgain.addEventListener("click", function () {
+                                location.reload();
+                            });
+                        }
                     }
                 }
             else {
-                addClass(images[count], "visable");
-                count++;
+                addClass(images[imgCount], "visable");
+                imgCount++;
                 lifeCount--;
                 lives.innerHTML = lifeCount;
-                if (count > 4) {
-                    removeClass(images[count - 2], "visable");
+                if (imgCount > 4) {
+                    removeClass(images[imgCount - 2], "visable");
+                    wordArr = ["YOU LOOSE!!"];
+                    updateCorrectGuessList();
+                    addClass(input, "display--none");
+                    removeClass(playAgain, "display--none");
+                    playAgain.addEventListener("click", function () {
+                        location.reload();
+                    });
                 }
 
                 addAnimation(card, "wobble");
@@ -107,32 +130,3 @@ btn.addEventListener("click", function () {
         resetValue(input);
     });
 });
-
-//  for (let i = 0; i < word.length; i++) {
-
-// && word.includes(input.value))
-
-// let word = prompt(`player1 picks a word`);
-// alert(`player 2 guess a letter`);
-// let wordArray = word.split(``);
-// let lineArray = wordArray.fill(` _ `);
-// let life = 10;
-// while (true) {
-//     let guess = prompt(`lives: ${life} ${lineArray}`);
-//     if (word.includes(guess)) {
-//         for (let i = 0; i < word.length; i++) {
-//             if (guess === word[i]) {
-//                 lineArray[i] = guess;
-//             }
-//         }
-//     } else if (word.includes(guess) === false) {
-//         life -= 1;
-//     }
-//     if (life === 0) {
-//         alert(`you're hanged man!!`);
-//         break;
-//     } else if (lineArray.includes(` _ `) === false) {
-//         alert(`horrraayyy!!!`);
-//         break;
-//     }
-// }
