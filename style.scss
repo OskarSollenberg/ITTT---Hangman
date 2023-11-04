@@ -25,9 +25,13 @@ body {
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     gap: 1rem;
+
+    @media (min-width: 25rem) {
+        justify-content: center;
+        bottom: 1.2rem;
+    }
 }
 .input {
     border: none;
