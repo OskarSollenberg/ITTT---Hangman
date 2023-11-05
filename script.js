@@ -1,7 +1,5 @@
 // VARIABLES
 const input = document.getElementById("userInput");
-
-const answer = document.getElementById("answer");
 const card = document.getElementById("card");
 
 // ANIMATIONS
@@ -62,16 +60,19 @@ updateUnderlineString = () => {
     answer.innerHTML = wordArr.join("");
 };
 guessedBefore = () => {
-    if (guessedLetters.includes(input.value)) {
+    if (allGuessedLetters.includes(input.value)) {
         return true;
     } else {
         return false;
     }
 };
+updateNumberOfLives = () => {
+    lives.innerHTML = livesLeft;
+};
 
 // EXECUTIONS AND IF STATEMENTS
 let word = "";
-let guessedLetters = "";
+let allGuessedLetters = "";
 let numOfIncorrectGuesses = 0;
 let numOfcorrecGuesses = 0;
 
@@ -80,6 +81,7 @@ let images = [vertical, horizontal, mid, rope, guy];
 let wordArr = [1, 2, 3, 4, 5];
 wordArr = [];
 
+// PLAY BTN / RESET GAMEBOARD
 function btnClick() {
     removeClass(images[0], "visable");
     removeClass(images[1], "visable");
@@ -94,43 +96,67 @@ function btnClick() {
     updateUnderlineString();
 
     input.addEventListener("keypress", function (press) {
+        //
+        //
+        // INPUT VARIABLES
+        let inputValue = input.value;
+        let inputValueStr = inputValue.toString();
+        let inputValueInCaps = inputValueStr.toUpperCase();
+        //
+        //
+        // IF STATEMENTS
         if (press.key === "Enter") {
+            //
+            //
+            // ALLREADY GUESSED LETTER
             if (guessedBefore()) {
                 addAnimation(input, "wobble");
                 setTimeout(resetAnimation, 1000, input, "wobble");
+                //
+                //
+                // NEW LETTER
             } else if (
                 guessedBefore() === false &&
                 word.includes(input.value.toUpperCase())
             ) {
-                // let idexOfWord = word[i];
-                // let valueOfInput =  input.value.toUpperCase()
+                //
+                //
+                // GUESSING CORRECT
                 for (let i = 0; i < word.length; i++) {
-                    if (word[i] === input.value.toUpperCase()) {
+                    if (word[i] === inputValueInCaps) {
                         wordArr[i] = word[i];
                         numOfcorrecGuesses++;
                         updateUnderlineString();
-
+                        //
+                        //
+                        // WINNING CONDITION
                         if (numOfcorrecGuesses === word.length) {
-                            wordArr = ["YOU WIN!!"];
-                            updateUnderlineString();
-
+                            removeClass(playAgain, "display--none");
                             addClass(input, "display--none");
                             addClass(pyro, "pyro");
-                            removeClass(playAgain, "display--none");
+
+                            wordArr = ["YOU WIN!!"];
+                            updateUnderlineString();
 
                             refreshPageOnBtnClick(playAgain);
                         }
                     }
                 }
+                //
+                //
+                // GUESSING WRONG
             } else if (guessedBefore() === false) {
                 addClass(images[numOfIncorrectGuesses], "visable");
+
                 addAnimation(card, "wobble");
                 setTimeout(resetAnimation, 1000, card, "wobble");
 
                 numOfIncorrectGuesses++;
                 livesLeft = 5 - numOfIncorrectGuesses;
-                lives.innerHTML = livesLeft;
-
+                updateNumberOfLives();
+                //
+                //
+                // LOOSING CONDITION
                 if (numOfIncorrectGuesses > 4) {
                     removeClass(images[numOfIncorrectGuesses - 2], "visable");
                     removeClass(playAgain, "display--none");
@@ -143,7 +169,10 @@ function btnClick() {
                 }
             }
         }
-        guessedLetters += input.value;
+        //
+        //
+        // RESETTING INPUT VALUES & ADDING LETTER TO GUESSEDLETTER-LIST
+        allGuessedLetters += inputValue;
         resetValue(input);
     });
 }
