@@ -1,13 +1,22 @@
 // VARIABLES
 const input = document.getElementById("userInput");
+
 const answer = document.getElementById("answer");
 const card = document.getElementById("card");
-const lives = document.getElementById("life");
-const liveForToggleVisability = document.getElementById("lives");
-const playAgain = document.getElementById("playAgain");
+
+// ANIMATIONS
 const pyro = document.getElementById("pyro");
 
+// LIVES
+const lives = document.getElementById("life");
+const liveForToggleVisability = document.getElementById("lives");
+
+// BUTTONS
+const playAgain = document.getElementById("playAgain");
 const btn = document.getElementById("btn");
+const btnOnClick = document
+    .getElementById("btn")
+    .addEventListener("click", btnClick);
 
 // IMAGES-------
 const vertical = document.getElementById("img__ver");
@@ -16,13 +25,6 @@ const mid = document.getElementById("img__mid");
 const rope = document.getElementById("img__rope");
 const guy = document.getElementById("img__guy");
 //--------------
-
-let word = "";
-
-// ARRAYS
-let images = [vertical, horizontal, mid, rope, guy];
-let wordArr = [1, 2, 3, 4, 5];
-wordArr = [];
 
 // INTERCHANGABLE FUNCTIONS
 addAnimation = (className, animation) => {
@@ -40,13 +42,23 @@ removeClass = (element, className) => {
 resetValue = (element) => {
     element.value = "";
 };
-// ONE-TIME FUNCTIONS
-createGuessList = () => {
+refreshPageOnBtnClick = (element) => {
+    element.addEventListener("click", function () {
+        location.reload();
+    });
+};
+
+// ONE-TIME-USE FUNCTIONS
+pickWord = () => {
+    word = prompt("Write a word for the other player to guess").toUpperCase();
+    return word;
+};
+createUnderlines = () => {
     for (let i = 0; i < word.length; i++) {
         wordArr.push(" _ ");
     }
 };
-updateCorrectGuessList = () => {
+updateUnderlineString = () => {
     answer.innerHTML = wordArr.join("");
 };
 guessedBefore = () => {
@@ -58,75 +70,80 @@ guessedBefore = () => {
 };
 
 // EXECUTIONS AND IF STATEMENTS
+let word = "";
 let guessedLetters = "";
-imgCount = 0;
-lifeCount = 5;
-winConditionCounter = 0;
-btn.addEventListener("click", function () {
+let numOfIncorrectGuesses = 0;
+let numOfcorrecGuesses = 0;
+
+// ARRAYS
+let images = [vertical, horizontal, mid, rope, guy];
+let wordArr = [1, 2, 3, 4, 5];
+wordArr = [];
+
+function btnClick() {
     removeClass(images[0], "visable");
     removeClass(images[1], "visable");
     removeClass(images[2], "visable");
     removeClass(images[4], "visable");
-
+    removeClass(input, "display--none");
     addClass(liveForToggleVisability, "visable");
     addClass(btn, "display--none");
-    removeClass(input, "display--none");
 
-    let words = prompt("Write a word for the other player to guess");
-    word = words.toUpperCase();
-
-    createGuessList();
-    updateCorrectGuessList();
+    pickWord();
+    createUnderlines();
+    updateUnderlineString();
 
     input.addEventListener("keypress", function (press) {
-        if (press.key === "Enter")
-            if (guessedBefore() === true) {
+        if (press.key === "Enter") {
+            if (guessedBefore()) {
                 addAnimation(input, "wobble");
                 setTimeout(resetAnimation, 1000, input, "wobble");
-            }
-        if (guessedBefore() === false) {
-            if (word.includes(input.value.toUpperCase()))
+            } else if (
+                guessedBefore() === false &&
+                word.includes(input.value.toUpperCase())
+            ) {
+                // let idexOfWord = word[i];
+                // let valueOfInput =  input.value.toUpperCase()
                 for (let i = 0; i < word.length; i++) {
                     if (word[i] === input.value.toUpperCase()) {
                         wordArr[i] = word[i];
-                        winConditionCounter++;
-                        updateCorrectGuessList();
-                        if (winConditionCounter === word.length) {
+                        numOfcorrecGuesses++;
+                        updateUnderlineString();
+
+                        if (numOfcorrecGuesses === word.length) {
                             wordArr = ["YOU WIN!!"];
-                            updateCorrectGuessList();
+                            updateUnderlineString();
 
                             addClass(input, "display--none");
                             addClass(pyro, "pyro");
-
                             removeClass(playAgain, "display--none");
 
-                            playAgain.addEventListener("click", function () {
-                                location.reload();
-                            });
+                            refreshPageOnBtnClick(playAgain);
                         }
                     }
                 }
-            else {
-                addClass(images[imgCount], "visable");
-                imgCount++;
-                lifeCount--;
-                lives.innerHTML = lifeCount;
-                if (imgCount > 4) {
-                    removeClass(images[imgCount - 2], "visable");
-                    wordArr = ["YOU LOOSE!!"];
-                    updateCorrectGuessList();
-                    addClass(input, "display--none");
-                    removeClass(playAgain, "display--none");
-                    playAgain.addEventListener("click", function () {
-                        location.reload();
-                    });
-                }
-
+            } else if (guessedBefore() === false) {
+                addClass(images[numOfIncorrectGuesses], "visable");
                 addAnimation(card, "wobble");
                 setTimeout(resetAnimation, 1000, card, "wobble");
+
+                numOfIncorrectGuesses++;
+                livesLeft = 5 - numOfIncorrectGuesses;
+                lives.innerHTML = livesLeft;
+
+                if (numOfIncorrectGuesses > 4) {
+                    removeClass(images[numOfIncorrectGuesses - 2], "visable");
+                    removeClass(playAgain, "display--none");
+                    addClass(input, "display--none");
+
+                    wordArr = ["YOU LOOSE!!"];
+                    updateUnderlineString();
+
+                    refreshPageOnBtnClick(playAgain);
+                }
             }
-            guessedLetters += input.value;
         }
+        guessedLetters += input.value;
         resetValue(input);
     });
-});
+}
