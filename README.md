@@ -36,11 +36,13 @@ Hi, This is a beginner project i did at Hyper Island where im currently studiyin
 ---
 ### What I learned:
 
+- Javascript Variables, Booleans, Arrays, Functions...
+
 - Learning Javascript built in methods/objects. 
 
-- Javascript DOM-manipulation
+- DOM-manipulation
 
-- Practicing my designing abilities. 
+- Practicing my designing skills. 
 
 - Better understanding of game-logic and working with If-statements in Javascript.
 
