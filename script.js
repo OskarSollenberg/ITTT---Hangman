@@ -12,9 +12,6 @@ const liveForToggleVisability = document.getElementById("lives");
 // BUTTONS
 const playAgain = document.getElementById("playAgain");
 const btn = document.getElementById("btn");
-const btnOnClick = document
-    .getElementById("btn")
-    .addEventListener("click", btnClick);
 
 // IMAGES-------
 const vertical = document.getElementById("img__ver");
@@ -82,6 +79,7 @@ let wordArr = [1, 2, 3, 4, 5];
 wordArr = [];
 
 // PLAY BTN / RESET GAMEBOARD
+btn.addEventListener("click", btnClick);
 function btnClick() {
     removeClass(images[0], "visable");
     removeClass(images[1], "visable");
